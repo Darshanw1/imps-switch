@@ -1,13 +1,20 @@
-import { Button, Container, Typography } from '@mui/material'
+import { Route, Routes } from 'react-router-dom'
+import Layout from './layout/Layout'
+import Dashboard from './pages/Dashboard'
+import NewTransaction from './pages/NewTransaction'
+import Transactions from './pages/Transactions'
+import Settlement from './pages/Settlement'
 
 function App() {
   return (
-    <Container sx={{ mt: 6 }}>
-      <Typography variant="h4" gutterBottom>
-        IMPS Switch
-      </Typography>
-      <Button variant="contained">It works!</Button>
-    </Container>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/transactions/new" element={<NewTransaction />} />
+        <Route path="/settlement" element={<Settlement />} />
+      </Route>
+    </Routes>
   )
 }
 
